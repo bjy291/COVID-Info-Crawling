@@ -1,6 +1,10 @@
 # COVID-Info-Crawling
 
 ## 3학년 1학기 개인 프로젝트 - 전국 코로나 확진자 현황
+[질병관리-14주 마지막.pptx](https://github.com/bjy291/COVID-Info-Crawling/files/8698071/-14.pptx)
+[하계학술대회 논문집 백재원.pdf](https://github.com/bjy291/COVID-Info-Crawling/files/8698073/default.pdf)
+[하계학술대회 논문집 백재원-우수눈몬상.pdf](https://github.com/bjy291/COVID-Info-Crawling/files/8698074/-.pdf)
+
 
 ## 사용기술
 - axios 모듈을 이용한 크롤링 
@@ -10,7 +14,6 @@
 - 마스크 판매점 정보 API
 - Chart API
 - 안전 안내 문자 API
-- 
 - 다음 우편번호 서비스
 - 반응형웹
 
