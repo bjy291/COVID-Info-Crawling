@@ -1,0 +1,292 @@
+doctype html
+html
+
+        head
+                meta(charset="utf-8")
+                meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+                meta(name="description" content="Start your development with a Dashboard for Bootstrap 4.")
+                meta(name="author" content="Creative Tim")
+                title 질병현황 본부
+                script(src="https://d3js.org/d3.v5.min.js")
+                script(src="https://cdn.jsdelivr.net/npm/billboard.js/dist/billboard.min.js")
+                link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/billboard.js/dist/billboard.min.css")
+                
+
+
+                link(rel="icon" href="./img/brand/favicon.png" type="image/png")
+                
+                link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700")
+                
+                link(rel="stylesheet" href="./css/main.css" type="text/css")
+                link(rel="stylesheet" href="./css/nucleo.css" type="text/css")
+                link(rel="stylesheet" href="./css/css/all.min.css" type="text/css")
+                link(rel="stylesheet" href="css/argon.css?v=1.2.0" type="text/css")           
+        body
+                nav(class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main")
+                        div(class="scrollbar-inner")
+                                div(class="sidenav-header  align-items-center")
+                                        a(class="navbar-brand" href="/")
+                                                span Inha
+                                div(class="navbar-inner")
+                                        div(class="collapse navbar-collapse" id="sidenav-collapse-main")
+                                                hr(class="my-3")
+                                                h6(class="navbar-heading p-0 text-muted")
+                                                        span(class="docs-normal") 질병현황
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link"  href="/state")
+                                                                        i(class="ni ni-send text-dark")
+                                                                        span(class="nav-link-text") 국내 현황
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/world")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 해외 현황
+                                                hr(class="my-3")
+                                                h6(class="navbar-heading p-0 text-muted")
+                                                        span(class="docs-normal") 감염자 정보
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link active" href="grap")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 감염 그래프
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/location")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 방문지
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/mask")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 마스크 판매처     
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                span(class="nav-link" data-toggle="collapse" data-target="#demo")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 감염자 정보
+                                                                                div(id="demo" class="collapse")
+                                                                                        a#menu(class="dropdown-item" href="/seoul") 서울 
+                                                                                        a#menu(class="dropdown-item" href="/in_state") 인천            
+                                                                                        a#menu(class="dropdown-item" href="/gunggi") 경기
+                                                                                        a#menu(class="dropdown-item" href="/deagu") 대구                                                   
+                                                
+                div(class="main-content" id="panel")
+                        img#imgg(src='/img/bar2.jpg')
+                        nav(class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom")
+                                div(class="container-fluid")     
+                                        div(class="collapse navbar-collapse" id="navbarSupportedContent")     
+                                                ul(class="navbar-nav align-items-center  ml-md-auto ")
+                                                        li(class="nav-item d-xl-none")
+                                                                div(class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main")
+                                                                        div(class="sidenav-toggler-inner")
+                                                                                i(class="sidenav-toggler-line")
+                                                                                i(class="sidenav-toggler-line")
+                                                                                i(class="sidenav-toggler-line")
+                        div(class="header bg-primary pb-6")
+                                div(class="container-fluid")
+                                        div(class="header-body")
+                                                div(class="row align-items-center py-4")
+                                                        div(class="col-lg-6 col-7")
+                                                                    h1 감염자 증감 비율
+                                                div(class="row")    
+                                                    div(class="col-xl-12")
+                                                        div(class="card bg-default")
+                                                            div(class="card-header bg-transparent")
+                                                                div(class="row align-items-center")
+                                                                    div(class="col")
+                                                                        h6 바이러스 감염자 증가율
+                                                                        
+                                                                div(id="xAxisTimezone") 
+
+                                       
+                        div(class="container-fluid mt--6")
+                                                div(class="row")          
+                                                    div(class="col-xl-12")
+                                                        div(class="card")
+                                                                div(class="card-header border-0")
+                                                                        div(class="row align-items-center")
+                                                                                div(class="col")
+                                                                                        h3(class="mb-0") 감염 통계율
+                                                                div(class="table-responsive")
+                                                                        each p in per
+                                                                                each da in data
+                                                                                        table(class="table align-items-center table-flush")
+                                                                                                thead(class="thead-light")     
+                                                                                                        tr
+                                                                                                                
+                                                                                                                th(scope="col") 제목
+                                                                                                                th(scope="col") 퍼센트
+                                                                                                                th(scope="col") 명
+                                                                                                                th(scope="col") chart
+                                                                                                tbody
+                                                                                                        tr
+                                                                                                                th(scope="row") 국내 완치율
+                                                                                                                td=(p.recoveredPercentage+"%")
+                                                                                                                td=da.recovered
+                                                                                                                td
+                                                                                                                        div(class="d-flex align-items-center")
+                                                                                                                                        div(class="progress")
+                                                                                                                                                -var pr = (p.recoveredPercentage+"%")
+                                                                                                                                                div(class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow=pr aria-valuemin="0" aria-valuemax="100" style="width: #{pr};" )
+                                                                                                        tr
+                                                                                                                th(scope="row") 국내 사망률
+                                                                                                                td=(p.deathPercentage+"%")
+                                                                                                                td=da.death
+                                                                                                                td
+                                                                                                                        div(class="d-flex align-items-center")
+                                                                                                                                        div(class="progress")
+                                                                                                                                                -var pr = (p.deathPercentage+"%")
+                                                                                                                                                div(class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow=pr aria-valuemin="0" aria-valuemax="100" style="width: #{pr};" )
+                                                                                                        tr
+                                                                                                                th(scope="row") 국내 검사중
+                                                                                                                td=(p.checkingPercentage+"%")
+                                                                                                                td=p.checkingCounter
+                                                                                                                td
+                                                                                                                        div(class="d-flex align-items-center")
+                                                                                                                                        div(class="progress")
+                                                                                                                                                -var pr = (p.checkingPercentage+"%")
+                                                                                                                                                div(class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow=pr aria-valuemin="0" aria-valuemax="100" style="width: #{pr};" )
+                                                                                                                        
+                                                                                                        tr
+                                                                                                                th(scope="row") 국내 검사결과 양성
+                                                                                                                td=(p.casePercentage+"%")
+                                                                                                                td=p.caseCount
+                                                                                                                td 
+                                                                                                                        div(class="d-flex align-items-center")
+                                                                                                                                        div(class="progress")
+                                                                                                                                                -var pr = (p.casePercentage+"%")
+                                                                                                                                                div(class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow=pr aria-valuemin="0" aria-valuemax="100" style="width: #{pr};" )
+                                                                                                        tr
+                                                                                                                th(scope="row") 국내 검사결과 음성
+                                                                                                                td=(p.notcasePercentage+"%")
+                                                                                                                td=p.notcaseCount
+                                                                                                                td
+                                                                                                                        div(class="d-flex align-items-center")
+                                                                                                                                        div(class="progress")
+                                                                                                                                                -var pr = (p.notcasePercentage+"%")
+                                                                                                                                                div(class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow=pr aria-valuemin="0" aria-valuemax="100" style="width: #{pr};" )
+                                                                                                        tr
+                                                                                                                th(scope="row") 총 검사 완료수
+                                                                                                                td
+                                                                                                                td=p.TotalChecking  
+                                                                                                                td
+                                                                                                                        div(class="d-flex align-items-center")
+                                                                                                                                        div(class="progress")
+                                                                                                                                                div(class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" )      
+
+
+                                                        
+                                                                                                                                        
+                            
+                                                .border
+                                                footer(class="footer pt-0")
+                                                            div(class="row align-items-center justify-content-lg-between")
+                                                                .centext
+                                                                    div(class="copyright text-center  text-lg-left  text-muted")
+                                                                        |opyright © 2019. Baek Jae Won Student Corporation. All rights reserved.
+                                                                        <br>
+                                                                        h 이용약관  
+                                                                        h#redh 개인정보취급방침  
+                                                                        h 이메일주소  무단수집거부  SSL보안인증
+                                                                        <br>
+                                                                        <br>
+                                                                        |학생 학번 :201544089
+                                                                        <br>
+                                                                        |컴퓨터정보과 2학년 C반 백재원 인하공업전문대학
+                                                                        <br>
+                                                                        |개발자 : Baek Jae Won | 개인정보관리책임자 : Baek Jae Won
+                                                                        <br> 
+                                                                        |TEL 백재원학생 고객지원센터 010-5896-2240 E-MAIL : 
+                                                                        h qor291@gmail.com
+
+                                                                input#cased1(type='hidden' value=grap[0].cased.replace(',',''))
+
+                                                                input#cased2(type='hidden' value=grap[1].cased.replace(',',''))
+
+                                                                input#cased3(type='hidden' value=grap[2].cased.replace(',',''))
+                                                                input#cased4(type='hidden' value=grap[3].cased.replace(',',''))
+                                                                input#cased5(type='hidden' value=grap[4].cased.replace(',',''))
+                                                                input#cased6(type='hidden' value=grap[5].cased.replace(',',''))
+                                                                input#cased7(type='hidden' value=grap[6].cased.replace(',',''))
+                                                                input#date1(type='hidden' value=new Date(grap[0].ddate).format("yyyy-MM-dd"))
+                                                                input#date2(type='hidden' value=new Date(grap[1].ddate).format("yyyy-MM-dd"))
+                                                                input#date3(type='hidden' value=new Date(grap[2].ddate).format("yyyy-MM-dd"))
+                                                                input#date4(type='hidden' value=new Date(grap[3].ddate).format("yyyy-MM-dd"))
+                                                                input#date5(type='hidden' value=new Date(grap[4].ddate).format("yyyy-MM-dd"))
+                                                                input#date6(type='hidden' value=new Date(grap[5].ddate).format("yyyy-MM-dd"))
+                                                                input#date7(type='hidden' value=new Date(grap[6].ddate).format("yyyy-MM-dd"))
+                                                                input#death1(type='hidden' value=grap[0].recovered.replace(',',''))
+                                                                input#death2(type='hidden' value=grap[1].recovered.replace(',',''))
+                                                                input#death3(type='hidden' value=grap[2].recovered.replace(',',''))
+                                                                input#death4(type='hidden' value=grap[3].recovered.replace(',',''))
+                                                                input#death5(type='hidden' value=grap[4].recovered.replace(',',''))
+                                                                input#death6(type='hidden' value=grap[5].recovered.replace(',',''))
+                                                                input#death7(type='hidden' value=grap[6].recovered.replace(',',''))
+                                                                
+                                                                
+                script(src="./vendor/jquery/dist/jquery.min.js")
+                script(src="./vendor/bootstrap/dist/js/bootstrap.bundle.min.js")
+                script(src="./vendor/js-cookie/js.cookie.js")
+                script(src="./vendor/jquery.scrollbar/jquery.scrollbar.min.js")
+                script(src="./vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js")
+
+                script(src="./css/jquery.min.js")
+                script(src="./css/bootstrap.bundle.min.js")
+                script(src="./css/js.cookie.js")
+                script(src="./css/jquery.scrollbar.min.js")
+                script(src="./css/jquery-scrollLock.min.js")
+                
+                script(src="./vendor/chart.js/dist/Chart.min.js")
+                script(src="./vendor/chart.js/dist/Chart.extension.js")
+                script(src="./css/Chart.min.js")
+                script(src="./css/Chart.extension.js")
+                script(src="/js/argon.js?v=1.2.0")        
+                script(src="argon.js?v=1.2.0") 
+                script.
+                        cased1=$("#cased1").val().toString()
+                        cased2=$("#cased2").val().toString()
+                        cased3=$("#cased3").val().toString()
+                        cased4=$("#cased4").val().toString()
+                        cased5=$("#cased5").val().toString()
+                        cased6=$("#cased6").val().toString()
+                        cased7=$("#cased7").val().toString()
+                        date1=$("#date1").val().toString()
+                        date2=$("#date2").val().toString()
+                        date3=$("#date3").val().toString()
+                        date4=$("#date4").val().toString()
+                        date5=$("#date5").val().toString()
+                        date6=$("#date6").val().toString()
+                        date7=$("#date7").val().toString()
+                        death1=$("#death1").val().toString()
+                        death2=$("#death2").val().toString()
+                        death3=$("#death3").val().toString()
+                        death4=$("#death4").val().toString()
+                        death5=$("#death5").val().toString()
+                        death6=$("#death6").val().toString()
+                        death7=$("#death7").val().toString()
+                          
+                        var chart=bb.generate({
+                              
+                                data: {
+                                        x:"x",
+                                        columns: [
+                                            ["x", date1,date2,date3,date4,date5,date6,date7],
+                                            ["확진자", cased1,cased2,cased3,cased4,cased5,cased6,cased7],
+                                            ["완치자", death1,death2,death3,death4,death5,death6,death7]
+                                        ]
+                                },
+                                axis: {
+                                        x: {
+                                                type: "timeseries",
+                                                
+                                                tick: {
+                                                        format: "%Y-%m-%d"    
+                                                }
+                                        }
+                                },
+                                bindto: "#xAxisTimezone"
+                        });              
+                                                                                
+                                
+                       

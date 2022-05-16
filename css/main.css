@@ -1,0 +1,263 @@
+.maping{
+    width: 40%;
+    margin: 10px 10px 10px 10px;
+}
+.main{
+    position: relative;
+    padding: 10px 10px 10px 10px;
+}
+.border{
+    margin-top: 100px;
+    border :5px;
+}
+#imga{
+    position: relative;
+    background-color:#1f9392;
+    margin-bottom: 0px;
+}
+
+.mapingA{
+    padding: 50px 50px 100px 50px;
+
+}
+.mapingA p{
+    font-size: 10px;
+}
+@media (max-width: 1200px)
+{
+    .mapingA{
+        
+        padding: 50px 80px 100px 80px;
+    }
+
+}
+@media (min-width: 576px)
+{
+    .mapingA{
+        
+        padding: 50px 80px 100px 80px;
+    }
+}
+.maping button{
+    font-family:  "Roboto", "Helvetica Neue", Arial, sans-serif;
+    background-color: #ededed;
+    border: 0px;
+    box-shadow: 1px 1px 5px 3px #cccccc;
+    
+}
+.map_city1{
+    position: absolute;
+    margin: 75px 10px 0px 140px;
+}
+.map_city2{
+    position: absolute;
+    margin: 370px 10px 0px 250px;
+}
+.map_city3{
+    position: absolute;
+    margin: 250px 10px 0px 250px;
+}
+.map_city4{
+    position: absolute;
+    margin: 50px 10px 0px 20px;
+}
+.map_city5{
+    position: absolute;
+    margin: 330px 10px 0px 95px;
+}
+.map_city6{
+    position: absolute;
+    margin: 200px 10px 0px 140px;
+}
+.map_city7{
+    position: absolute;
+    margin: 320px 10px 0px 300px;
+}
+.map_city8{
+    position: absolute;
+    margin: 125px 10px 0px 90px;
+}
+.map_city9{
+    position: absolute;
+    margin: 20px 10px 0px 100px;
+}
+.map_city10{
+    position: absolute;
+    margin: 50px 10px 0px 250px;
+}
+.map_city11{
+    position: absolute;
+    margin: 130px 10px 0px 170px;
+}
+.map_city12{
+    position: absolute;
+    margin: 190px 10px 0px 40px;
+}
+.map_city13{
+    position: absolute;
+    margin: 260px 10px 0px 90px;
+}
+.map_city14{
+    position: absolute;
+    margin: 370px 10px 0px 40px;
+}
+.map_city15{
+    position: absolute;
+    margin: 190px 10px 0px 220px;
+}
+.map_city16{
+    position: absolute;
+    margin: 310px 10px 0px 180px;
+}
+.map_city17{
+    position: absolute;
+    margin: 330px 10px 0px 80px;
+}
+.map_city18{
+    position: absolute;
+    margin: 440px 10px 0px -10px;
+}
+#city{
+    font-weight: bolder;
+}
+#upimg{
+    width: 80%;
+    margin: 20px 0px 20px 50px;
+}
+#menu{
+    padding-top: 20px;
+    margin-left: 30px;
+}
+.top{
+    position: relative;
+    margin-left: 293px;
+    margin-top: -8px;
+    margin-bottom: 130px;
+    width:1103px;
+    height: 70px;
+    z-index:99;
+    background-color: blue;
+}
+#mainimg{
+    position: relative;
+    width: 390px;
+    height: 315px;
+
+    margin-bottom: 10px;
+}
+#mainimg2{
+    position: relative;
+    width: 390px;
+    height: 415px;
+
+    margin-bottom: 10px;
+}
+#mainimg3{
+    position: relative;
+    width: 390px;
+    height: 415px;
+   
+    margin-bottom: 10px;
+
+}
+#video{
+    
+}
+#mainimg3{
+    width: 95%;
+}
+
+.centent2{
+    margin: 0px 0px 0px 350px;
+    
+}
+.content2 img{
+    width: 50px;
+}
+.list{
+    position: fixed;
+    top:0px;
+    margin-left: -10px;
+    
+}
+.link-container {
+    width: 250px;
+    height: 700px;
+    font-family: Maplestory_OTF; 
+    border: #1f9392 2px solid;
+    background-color: #addfea;
+    box-shadow: 1px 1px 10px 3px #cccccc;
+}
+#mainmenu{
+    font-size: 30px;
+    list-style:  none;
+    margin:  -10px;  padding:  10px  0px  35px  60px;
+    margin-top: 30%;
+    font-family:  "Roboto", "Helvetica Neue", Arial, sans-serif;
+    }
+    #mainmenu a{
+        display:  block;
+        margin-top: 20px;
+        font-family:  "Roboto", "Helvetica Neue", Arial, sans-serif;
+    }
+.bottom{
+    width: 57%;
+    margin-top:150px;
+    margin-left:200px;
+    background-color: white;
+    height: 170px;
+    border-top: 2px solid #777;
+    padding-left: 400px;
+    padding-top: 50px;
+}
+.centext{
+    border-top: 1px;
+    margin: 30px 0px 30px 0px;
+    font-size: 12px;
+    color:#777;
+}
+.centext h{
+    color:black;
+}
+.contable{
+    font-family:  "Roboto", "Helvetica Neue", Arial, sans-serif;
+    margin-bottom: 70px;
+    margin-left: 0px;
+    text-align: center;
+    margin-top: 50px;
+}
+.contable p{
+    font-family:  "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+.contable th{
+    font-size: 40px;
+    padding: 0px 40px 0px 40px;
+    box-shadow: 1px 1px 10px 3px #cccccc;
+    border-bottom: 0px;
+    text-align: center;
+    background-color:aliceblue;
+}
+.contable td{
+    background-color:aliceblue;
+    border-bottom: 0px black;
+    
+    border-top: 0px;
+    font-size: 20px;
+    color: rgb(105, 104, 101);
+    text-align: center;
+}
+#warning{
+    background-color: orange;
+}
+#plenty{
+    background-color: green;
+}
+#few{
+    background-color: red;
+}
+#empty{
+    background-color: grey;
+}
+#break{
+    background-color: mediumblue;
+}

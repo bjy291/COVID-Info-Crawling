@@ -1,0 +1,167 @@
+doctype html
+html
+
+        head
+                meta(charset="utf-8")
+                meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+                meta(name="description" content="Start your development with a Dashboard for Bootstrap 4.")
+                meta(name="author" content="Creative Tim")
+                title 질병현황 본부
+                
+                link(rel="icon" href="./img/brand/favicon.png" type="image/png")
+                
+                link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700")
+                
+                link(rel="stylesheet" href="./css/main.css" type="text/css")
+                link(rel="stylesheet" href="./css/nucleo.css" type="text/css")
+                link(rel="stylesheet" href="./css/css/all.min.css" type="text/css")
+                link(rel="stylesheet" href="css/argon.css?v=1.2.0" type="text/css")           
+        body
+                nav(class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main")
+                        div(class="scrollbar-inner")
+                                div(class="sidenav-header  align-items-center")
+                                        a(class="navbar-brand" href="/")
+                                                span Inha
+                                div(class="navbar-inner")
+                                        div(class="collapse navbar-collapse" id="sidenav-collapse-main")
+                                                hr(class="my-3")
+                                                h6(class="navbar-heading p-0 text-muted")
+                                                        span(class="docs-normal") 질병현황
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link"  href="/state")
+                                                                        i(class="ni ni-send text-dark")
+                                                                        span(class="nav-link-text") 국내 현황
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/world")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 해외 현황
+                                                hr(class="my-3")
+                                                h6(class="navbar-heading p-0 text-muted")
+                                                        span(class="docs-normal") 감염자 정보
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/grap")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 감염 그래프
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/location")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 방문지
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/mask")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 마스크 판매처     
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                span(class="nav-link" data-toggle="collapse" data-target="#demo")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 감염자 정보
+                                                                                div(id="demo" class="collapse")
+                                                                                        a#menu(class="dropdown-item" href="/seoul") 서울 
+                                                                                        a#menu(class="dropdown-item" href="/in_state") 인천            
+                                                                                        a#menu(class="dropdown-item" href="/gunggi") 경기
+                                                                                        a#menu(class="dropdown-item" href="/deagu") 대구                                                                                            
+                                                                                                                                    
+                                                
+                div(class="main-content" id="panel")
+                        img#imgg(src='/img/bar2.jpg')
+                        nav(class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom")
+                                div(class="container-fluid")     
+                                        div(class="collapse navbar-collapse" id="navbarSupportedContent")     
+                                                ul(class="navbar-nav align-items-center  ml-md-auto ")
+                                                        li(class="nav-item d-xl-none")
+                                                                div(class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main")
+                                                                        div(class="sidenav-toggler-inner")
+                                                                                i(class="sidenav-toggler-line")
+                                                                                i(class="sidenav-toggler-line")
+                                                                                i(class="sidenav-toggler-line")
+                        div(class="header bg-primary pb-6")
+                                div(class="container-fluid")
+                                        div(class="header-body")
+                                                div(class="row align-items-center py-4")
+                                                        div(class="col-lg-6 col-7")
+                                                                    h1 질병관리 본부
+                                                                
+                                       
+                        div(class="container-fluid mt--6")
+                                                div(class="row")
+                                                        div(class="col-xl-6 col-md-6")
+                                                                iframe#video(width="390" height="315" src="https://www.youtube.com/embed/U_sYIKWhJvk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)   
+                                                                img#mainimg2(src="./img/main13.jpg")                                     
+                                                        div(class="col-xl-6 col-md-6")   
+                                                                img#mainimg(src="./img/main4.jpg")
+                                                                img#mainimg3(src="./img/main11.png")                             
+                                                                                                
+                                                                                                       
+                                                                                                                
+                        div(class="header bg-primary pb-6")
+                                div(class="container-fluid")
+                                        div(class="header-body")
+                                                div(class="row align-items-center py-4")
+                                                        div(class="col-lg-6 col-7")
+                                                                    h1 안전 안내 문자
+                                                                    
+                                                div(class="row")
+                                                                each m in me
+                                                                        div(class="col-xl-6 col-md-6")
+                                                                                div(class="card card-stats")
+                                                                                        div(class="card-body")
+                                                                                        
+                                                                                                div(class="row")
+                                                                                                        div(class="col")
+                                                                                                                h5(class="card-title text-uppercase text-muted mb-3")=m.location
+                                                                                                                span(class="h2 font-weight-bold mb-0")=m.text
+
+                                                                                                p(class="mt-3 mb-0 text-sm")
+                                                                                                        span(class="text-nowrap")=m.date
+                                                                                                                            
+                                                                           
+                                                                                                                                        
+                            
+                                                .border
+                                                footer(class="footer pt-0")
+                                                            div(class="row align-items-center justify-content-lg-between")
+                                                                .centext
+                                                                    div(class="copyright text-center  text-lg-left  text-muted")
+                                                                        |opyright © 2019. Baek Jae Won Student Corporation. All rights reserved.
+                                                                        <br>
+                                                                        h 이용약관  
+                                                                        h#redh 개인정보취급방침  
+                                                                        h 이메일주소  무단수집거부  SSL보안인증
+                                                                        <br>
+                                                                        <br>
+                                                                        |학생 학번 :201544089
+                                                                        <br>
+                                                                        |컴퓨터정보과 2학년 C반 백재원 인하공업전문대학
+                                                                        <br>
+                                                                        |개발자 : Baek Jae Won | 개인정보관리책임자 : Baek Jae Won
+                                                                        <br> 
+                                                                        |TEL 백재원학생 고객지원센터 010-5896-2240 E-MAIL : 
+                                                                        h qor291@gmail.com
+                                                                       
+                                                                
+                script(src="./vendor/jquery/dist/jquery.min.js")
+                script(src="./vendor/bootstrap/dist/js/bootstrap.bundle.min.js")
+                script(src="./vendor/js-cookie/js.cookie.js")
+                script(src="./vendor/jquery.scrollbar/jquery.scrollbar.min.js")
+                script(src="./vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js")
+
+                script(src="./css/jquery.min.js")
+                script(src="./css/bootstrap.bundle.min.js")
+                script(src="./css/js.cookie.js")
+                script(src="./css/jquery.scrollbar.min.js")
+                script(src="./css/jquery-scrollLock.min.js")
+                
+                script(src="./vendor/chart.js/dist/Chart.min.js")
+                script(src="./vendor/chart.js/dist/Chart.extension.js")
+                script(src="./css/Chart.min.js")
+                script(src="./css/Chart.extension.js")
+                script(src="/js/argon.js?v=1.2.0")        
+                script(src="argon.js?v=1.2.0") 
+                                                                                
+                                
+                       

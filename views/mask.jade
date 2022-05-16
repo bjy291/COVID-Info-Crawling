@@ -1,0 +1,270 @@
+doctype html
+html
+
+        head
+                meta(charset="utf-8")
+                meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+                meta(name="description" content="Start your development with a Dashboard for Bootstrap 4.")
+                meta(name="author" content="Creative Tim")
+                title 질병현황 본부
+                
+                link(rel="icon" href="./img/brand/favicon.png" type="image/png")
+                link(href="./css/jquery.min.js")
+                link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700")
+                script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+                link(rel="stylesheet" href="./css/main.css" type="text/css")
+                link(rel="stylesheet" href="./css/nucleo.css" type="text/css")
+                link(rel="stylesheet" href="./css/css/all.min.css" type="text/css")
+                link(rel="stylesheet" href="css/argon.css?v=1.2.0" type="text/css")           
+        body
+                nav(class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main")
+                        div(class="scrollbar-inner")
+                                div(class="sidenav-header  align-items-center")
+                                        a(class="navbar-brand" href="/")
+                                                span Inha
+                                div(class="navbar-inner")
+                                        div(class="collapse navbar-collapse" id="sidenav-collapse-main")
+                                                hr(class="my-3")
+                                                h6(class="navbar-heading p-0 text-muted")
+                                                        span(class="docs-normal") 질병현황
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link"  href="/state")
+                                                                        i(class="ni ni-send text-dark")
+                                                                        span(class="nav-link-text") 국내 현황
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/world")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 해외 현황
+                                                hr(class="my-3")
+                                                h6(class="navbar-heading p-0 text-muted")
+                                                        span(class="docs-normal") 감염자 정보
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/grap")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 감염 그래프
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link" href="/location")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 방문지
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                a(class="nav-link active" href="/mask")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 마스크 판매처     
+                                                ul(class="navbar-nav mb-md-3")
+                                                        li(class="nav-item")
+                                                                span(class="nav-link" data-toggle="collapse" data-target="#demo")
+                                                                        i(class="ni ni-spaceship")
+                                                                        span(class="nav-link-text") 감염자 정보
+                                                                                div(id="demo" class="collapse")
+                                                                                        a#menu(class="dropdown-item" href="/seoul") 서울 
+                                                                                        a#menu(class="dropdown-item" href="/in_state") 인천            
+                                                                                        a#menu(class="dropdown-item" href="/gunggi") 경기
+                                                                                        a#menu(class="dropdown-item" href="/deagu") 대구                                                                                            
+                                                                                                                                    
+                                                
+                div(class="main-content" id="panel")
+                        img#imgg(src='/img/bar2.jpg')
+                        nav(class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom")
+                                div(class="container-fluid")     
+                                        div(class="collapse navbar-collapse" id="navbarSupportedContent")     
+                                                ul(class="navbar-nav align-items-center  ml-md-auto ")
+                                                        li(class="nav-item d-xl-none")
+                                                                div(class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main")
+                                                                        div(class="sidenav-toggler-inner")
+                                                                                i(class="sidenav-toggler-line")
+                                                                                i(class="sidenav-toggler-line")
+                                                                                i(class="sidenav-toggler-line")
+                        div(class="header bg-primary pb-6")
+                                div(class="container-fluid")
+                                        div(class="header-body")
+                                                div(class="row align-items-center py-4")
+                                                        div(class="col-lg-6 col-7")
+                                                                    h1 마스크 판매 검색
+                                                                    p ★ 6월 1일부터 마스크 5부제가 폐지됩니다. 한 주에 3개를 구매할 수 있으며 18세 이하(2002년 이후) 출생자는 최대 5개를 구매할 수 있습니다.
+                                                                
+                                       
+                        div(class="header bg-primary pb-6")        
+                                div(class="container-fluid mt--6")
+                                                div(class="row")     
+                                                    div(class="col-md-8 mb-2")
+                                                                div(class="card")
+                                                                        div(class="card-header")
+                                                                                h1(class="card-title mb-0") 마스크
+                                                                                        small(class="badge badge-default badge-warning form-text text-white") 검색
+
+                                                                        div(class="card-body")
+                                                                                div(class="btn-list")
+                                                                                        form.maskdata(method="POST" action="/mask")
+                                                                                                //button(style="width:100%" type="button" onclick="searchByLocation()" class="btn btn-success") 
+                                                                                                        i(class="xi-gps") 위치정보로 검색하기
+                                                                                                input(type="button" style="width:100%; height:80px;" onclick="sample4_execDaumPostcode()" class="btn btn-info" value="주소로 검색하기")
+                                                                                                        
+                                                                                                input(type="text" style="width:100%; margin-bottom:20px" id="sample4_postcode" placeholder="검색주소" name="number")
+                                                                                                
+                                                                                                button#maskbtn(class="btn-primary" style="width:100%;" type="submit") 검색
+                                                                                script(src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
+                                                        div(class="col-md-4 mb-1")
+                                                                div(class="card")
+                                                                        div(class="card-body")
+                                                                                a(type="button" style="width: 100%" href="https://bit.ly/00mask" target="_blank" class="btn btn-secondary")
+                                                                                        i(class="ti-book") 공적마스크 Q&amp;A 확인하기
+                                                                                br
+                                                                                br
+                                                                                p 해당 정보는 건강보험심사평가원에서 실시간으로 가져옵니다. 5-10분정도 실제 상황과 차이가 있을 수 있습니다. 
+                                                                                p 해당 데이터는 공공데이터 포털에서 제공되는 마스크 주소검색 API를 활용하여 데이터를 가져옵니다.        
+                                                                                 
+
+                        div(class="header bg-primary pb-6")
+                                div(class="container-fluid")
+                                        div(class="header-body")
+                                                div(class="row align-items-center py-14")
+                                                        div(class="col-lg-18 col-71")
+                                                                each inf in info
+                                                                        each coun in count
+                                                                                div(class="card-body")
+                                                                                        div(class="card-header text-left border-bottom-0")
+                                                                                                        strong(class="card-title")=inf.search
+                                                                                                                span=('에서 ' + coun.cou + '건 찾았습니다.')
+                                                                    
+                                                div(class="row")
+                                                                each ma in mask
+                                                                        div(class="col-xl-6 col-md-6")
+                                                                                div(class="card card-stats")
+                                                                                        div(class="card-body")
+                                                                                        
+                                                                                                div(class="row")
+                                                                                                        div(class="col")
+                                                                                                                h2(class="card-title text-uppercase mb-3 text-black")=ma.name_n+'  -  '
+                                                                                                                        if(ma.remain_stat=='plenty')
+                                                                                                                                small#plenty(class="badge badge-default badge-warning form-text text-white") 많음(100개 이상)
+                                                                                                                        if(ma.remain_stat=='some')
+                                                                                                                                small#warning(class="badge badge-default badge-warning form-text text-white") 보통(100개 미만)
+                                                                                                                        if(ma.remain_stat=='few')
+                                                                                                                                small#few(class="badge badge-default badge-warning form-text text-white") 적음(2 ~ 30개)
+                                                                                                                        if(ma.remain_stat=='empty')
+                                                                                                                                small#empty(class="badge badge-default badge-warning form-text text-white") 매우적음(1개 이하)
+                                                                                                                        if(ma.remain_stat=='break')
+                                                                                                                                small#break(class="badge badge-default badge-warning form-text text-white") 판매중지        
+                                                                                                                if(ma.remain_stat=='plenty')
+                                                                                                                                span(class="h2 font-weight-bold mb-0 text-green")=ma.addr
+                                                                                                                        if(ma.remain_stat=='some')
+                                                                                                                                span(class="h2 font-weight-bold mb-0 text-orange")=ma.addr
+                                                                                                                        if(ma.remain_stat=='few')
+                                                                                                                                span(class="h2 font-weight-bold mb-0 text-red")=ma.addr
+                                                                                                                        if(ma.remain_stat=='empty')
+                                                                                                                                span(class="h2 font-weight-bold mb-0 text-gray")=ma.addr
+                                                                                                                        if(ma.remain_stat=='break')
+                                                                                                                                span(class="h2 font-weight-bold mb-0 text-blue")=ma.addr
+
+                                                                                                                
+                                                                                                p(class="mt-3 mb-0 text-sm") 입고 시간 : 
+                                                                                                        span(class="text-nowrap")=ma.stock_at
+                                                                                                p(class="mt-3 mb-0 text-sm-right")
+                                                                                                        span(class="text-nowrap")=ma.update_u  
+                                                                        
+                                                                                                                                          
+                                                .border
+                                                footer(class="footer pt-0")
+                                                            div(class="row align-items-center justify-content-lg-between")
+                                                                .centext
+                                                                    div(class="copyright text-center  text-lg-left  text-muted")
+                                                                        |opyright © 2019. Baek Jae Won Student Corporation. All rights reserved.
+                                                                        <br>
+                                                                        h 이용약관  
+                                                                        h#redh 개인정보취급방침  
+                                                                        h 이메일주소  무단수집거부  SSL보안인증
+                                                                        <br>
+                                                                        <br>
+                                                                        |학생 학번 :201544089
+                                                                        <br>
+                                                                        |컴퓨터정보과 2학년 C반 백재원 인하공업전문대학
+                                                                        <br>
+                                                                        |개발자 : Baek Jae Won | 개인정보관리책임자 : Baek Jae Won
+                                                                        <br> 
+                                                                        |TEL 백재원학생 고객지원센터 010-5896-2240 E-MAIL : 
+                                                                        h qor291@gmail.com
+                
+                script.
+                                
+                                $(document).on("click", "#maskbtn", function(){ 
+                                        
+                                        //$(".maskdata").submit();
+                                        
+                                        location.reload()
+                                        	
+                                })
+                                
+                                
+
+                                
+                                
+                                function sample4_execDaumPostcode() {
+                                                new daum.Postcode({
+                                                        oncomplete: function(data) {
+                                                                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                                                                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                                                                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                                                                var roadAddr = data.roadAddress; // 도로명 주소 변수
+                                                                var extraRoadAddr = ''; // 참고 항목 변수
+
+                                                              
+                                                                
+                                                                var se ='';
+                                                                if(data.sido == '서울'){
+                                                                        se = '서울특별시'
+                                                                }
+                                                                if(data.sido == '충남'){
+                                                                        se = '충청남도'
+                                                                }
+                                                                if(data.sido == '인천'){
+                                                                        se = '인천광역시'
+                                                                }
+                                                                if(data.sido == '충북'){
+                                                                        se = '충청북도'
+                                                                }
+                                                                if(data.sido == '부산'){
+                                                                        se = '부산광역시'
+                                                                }
+                                                                if(data.sido == '대전'){
+                                                                        se = '대전광역시'
+                                                                }
+                                                                if(data.sido == '광주'){
+                                                                        se = '광주광역시'
+                                                                }
+                                                                if(data.sido == '경기'){
+                                                                        se = '경기도'
+                                                                }
+                                                                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                                                                document.getElementById('sample4_postcode').value = se +' ' + data.sigungu+ ' ' + data.bname;       
+                                                        }
+                                                }).open();
+                                        }                   
+                	                                                                                    
+                script(src="./vendor/jquery/dist/jquery.min.js")
+                script(src="./vendor/bootstrap/dist/js/bootstrap.bundle.min.js")
+                script(src="./vendor/js-cookie/js.cookie.js")
+                script(src="./vendor/jquery.scrollbar/jquery.scrollbar.min.js")
+                script(src="./vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js")
+
+                script(src="./css/jquery.min.js")
+                script(src="./css/bootstrap.bundle.min.js")
+                script(src="./css/js.cookie.js")
+                script(src="./css/jquery.scrollbar.min.js")
+                script(src="./css/jquery-scrollLock.min.js")
+                script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+                script(src="./vendor/chart.js/dist/Chart.min.js")
+                script(src="./vendor/chart.js/dist/Chart.extension.js")
+                script(src="./css/Chart.min.js")
+                script(src="./css/Chart.extension.js")
+                script(src="/js/argon.js?v=1.2.0")        
+                script(src="argon.js?v=1.2.0") 
+                
+                
+                                
+                       
